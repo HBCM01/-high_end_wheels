@@ -1,5 +1,8 @@
 <%= @car.make %>
 
+
+
+<button><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
 <button><%= link_to "edit listing", edit_car_path  %></button>
 <button><%= link_to "delete listing", car_path(@car.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?"}  %></button>
 <button><%= link_to "back to cars", cars_path  %></button>

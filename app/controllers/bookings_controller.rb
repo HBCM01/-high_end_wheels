@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @car = Car.find(params[:car_id])
     @booking.car = @car
     if @booking.save
-      redirect_to @booking
+      redirect_to my_profile_path
     else
       render :new
     end
