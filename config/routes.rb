@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get "myprofile", to: "pages#myprofile"   myprofile view in pages
   resources :cars, only: [ :index, :show, :new, :create, :update, :edit, :destroy ] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :show]
   end
   resources :bookings, only: [:destroy]
   get "/my_profile", to: "pages#my_profile", as: :my_profile

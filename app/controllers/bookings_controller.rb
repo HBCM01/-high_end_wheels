@@ -16,6 +16,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -27,7 +31,6 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end
 # :show, :new, :create, :update, :edit, :destroy
 # in pages controller we can retreive all bookings belonging to a specific user
