@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:destroy]
   get "/my_profile", to: "pages#my_profile", as: :my_profile
+  resources :bookings, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
 end
 
