@@ -1,9 +1,9 @@
 <h1>Car Listings</h1>
 <ul>
   <%@cars.each do |car| %>
-    <li><%= link_to car.make, user_car_file %></li>
-    <li><<%= link_to car.model, user_car_file %></li>
-    <li><<%= link_to car.price, user_car_file %></li>
+    <li><%= link_to car.make, user_cars_path %></li>
+    <li><<%= link_to car.model, user_cars_path %></li>
+    <li><<%= link_to car.price, user_cars_path %></li>
   <% end  %>
 </ul>
 
