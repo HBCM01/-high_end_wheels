@@ -1,12 +1,37 @@
 <h1>Car Listings</h1>
 <ul>
   <%@cars.each do |car| %>
-    <li><%= link_to car.make, car_path(car) %></li>
-      <% car.photos.each do |photo| %>
-        <%=cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+
+
+      <%= link_to car_path(car) do %>
+      <li><div class="">
+      <%=car.make %>
+      <%= car.model %>
+      <%= car.price %>
+      <%= car.address %>
+
+
+      <%# car.photos.first do |photo| %>
+      <%=cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill %>
+      </div></li>
+      <%# end %>
+    <% end  %>
     <% end  %>
 </ul>
+
+<!--
+<div class="card-trip">
+  <img src="https://suvs2020.com/wp-content/uploads/2018/12/2020-Mercedes-Benz-G-Class.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Type Model</h2>
+      <p>Type description!</p>
+    </div>
+    <h2 class="card-trip-pricing">Price</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+-->
 
 
 <button><%= link_to "create a listing",new_car_path %></button>
