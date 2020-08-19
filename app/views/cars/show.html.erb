@@ -1,27 +1,29 @@
-<h1><%= @car.make %></h1>
 
-<div class="card-trip">
-  <%=cl_image_tag @car.photos.first.key, height: 300, width: 550, crop: :fill, class:"car_image" %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @car.model %></h2>
-      <p>Type description!</p>
+<div class="container">
+  <h1><%= @car.make %></h1>
+  <div class="car-show">
+    <%=cl_image_tag @car.photos.first.key, class:"car_image" %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @car.model %></h2>
+        <p>Type description!</p>
+      </div>
+      <h2 class="card-trip-pricing">£<%= @car.price %> per day</h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
-    <h2 class="card-trip-pricing">£<%= @car.price %> per day</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
+  <div></div>
+
+  <ul>
+    <%@car.reviews.each do |review|%>
+    <%= review.description %>
+    <%= review.rating %>
+    <% end %>
+  </ul>
+
+
+  <button><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
+  <button><%= link_to "edit listing", edit_car_path  %></button>
+  <button><%= link_to "delete listing", car_path(@car.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?"}  %></button>
+  <button><%= link_to "back to cars", cars_path  %></button>
 </div>
-<div></div>
-
-<ul>
-  <%@car.reviews.each do |review|%>
-  <%= review.description %>
-  <%= review.rating %>
-  <% end %>
-</ul>
-
-
-<button><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
-<button><%= link_to "edit listing", edit_car_path  %></button>
-<button><%= link_to "delete listing", car_path(@car.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?"}  %></button>
-<button><%= link_to "back to cars", cars_path  %></button>
