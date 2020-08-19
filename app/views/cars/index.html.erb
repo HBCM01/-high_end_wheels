@@ -1,38 +1,23 @@
 <h1>Car Listings</h1>
-<ul>
+
+<button><%= link_to "Create a listing",new_car_path %></button>
+<button><%= link_to "Back", root_path  %></button>
+
+<div class="cards">
   <%@cars.each do |car| %>
 
-
-      <%= link_to car_path(car) do %>
-      <li><div class="">
-      <%=car.make %>
-      <%= car.model %>
-      <%= car.price %>
-      <%= car.address %>
-
-
-      <%# car.photos.first do |photo| %>
-      <%=cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill %>
-      </div></li>
-      <%# end %>
-    <% end  %>
-    <% end  %>
-</ul>
-
-<!--
-<div class="card-trip">
-  <img src="https://suvs2020.com/wp-content/uploads/2018/12/2020-Mercedes-Benz-G-Class.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Type Model</h2>
-      <p>Type description!</p>
-    </div>
-    <h2 class="card-trip-pricing">Price</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
+    <%= link_to car_path(car) do %>
+      <div class="card-trip">
+        <%=cl_image_tag car.photos.first.key, height: 300, width: 550, crop: :fill, class:"car_image" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%=car.make %> <%= car.model %>  </h2>
+            <p>Available at <%= car.address %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= car.price %> GBP </h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
--->
-
-
-<button><%= link_to "create a listing",new_car_path %></button>
-<button><%= link_to "back", root_path  %></button>
