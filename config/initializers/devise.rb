@@ -25,11 +25,14 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  
+
   # config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
+
+  config.omniauth :facebook, “App ID”, “App Secret”,
+  callback_url: "http://localhost:3000/auth/facebook/callback"
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -128,7 +131,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  
+
   # config.pepper = '94fcf581896ca3713ca4cc810af4d5cf1686f814eb2e95ec444ad0aeadc6f172362520bfe6b4dac2e30feb60904e1e2631e3aaf278456526bd96163ce19171c6'
 
   # Send a notification to the original email when the user's email is changed.
