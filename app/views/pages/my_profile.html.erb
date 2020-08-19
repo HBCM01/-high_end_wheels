@@ -18,7 +18,12 @@
         </div>
         <h2 class="card-trip-pricing">Total £<%= booking.total_price %></h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <button><%= link_to "Cancel booking", booking_path(booking.id), method: :delete %></button>
+        <% if booking.review %>
+        <p><%= booking.review.description %></p>
+        <% else %>
         <button><%= link_to "create a review",  new_booking_review_path(booking)%></button>
+        <% end  %>
       </div>
     </div>
   <% end  %>
