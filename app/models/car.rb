@@ -9,4 +9,6 @@ class Car < ApplicationRecord
   validates :price, presence: true
   validates :address, presence: true
   validates :user_id, presence: true
+  include PgSearch::Model
+  multisearchable against: [:make, :model, :price, :description]
 end
