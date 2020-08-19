@@ -1,0 +1,16 @@
+
+
+ <div class="card-trip">
+  <% @bookings.each do |booking| %>
+
+  <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-mercedes-amg-gt-r-pro-126-1554739776.jpg?crop=0.723xw:0.885xh;0.173xw,0.115xh&resize=768:*" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to booking.car.make, car_booking_path(booking.car, booking)%></h2>
+      <p>The ultimate speed test!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99 per day</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+ <% end  %>
+</div>
