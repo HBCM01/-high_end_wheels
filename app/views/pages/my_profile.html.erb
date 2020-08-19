@@ -16,7 +16,7 @@
           </ul>
           <p>The ultimate speed test!</p>
         </div>
-        <h2 class="card-trip-pricing">£99.99 per day</h2>
+        <h2 class="card-trip-pricing">Total £<%= booking.total_price %></h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         <button><%= link_to "create a review",  new_booking_review_path(booking)%></button>
       </div>
