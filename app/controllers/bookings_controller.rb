@@ -31,6 +31,10 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
+  def total_price
+    @total_price = Booking.car.price
+  end
 end
 # :show, :new, :create, :update, :edit, :destroy
 # in pages controller we can retreive all bookings belonging to a specific user
