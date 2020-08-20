@@ -24,11 +24,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-    @car_map = @car
-    @car_map = Car.geocoded # returns cars with coordinates
-
-    @marker = @car_map
-      
+    @marker = [{ lat: @car.latitude, lng: @car.longitude }]
   end
 
   def update
