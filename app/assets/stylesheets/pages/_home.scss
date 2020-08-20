@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+
 }
 
 .banner h1 {
@@ -136,9 +137,7 @@ a {
 
 .car_image {
   background-size: cover;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+
 }
 
 .a {
@@ -147,4 +146,10 @@ a {
 
 .siema {
   margin: 20px;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
 }
