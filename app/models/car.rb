@@ -12,9 +12,8 @@ class Car < ApplicationRecord
   validates :description, presence: true
    include PgSearch::Model
   pg_search_scope :car_search,
-    against: [ :make, :model, :description ],
+    against: [:make, :model, :description, :address],
      using: {
       tsearch: { prefix: true }
     }
 end
-
