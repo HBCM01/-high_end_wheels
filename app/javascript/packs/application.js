@@ -24,7 +24,11 @@ require("channels")
 
 // External imports
 import "bootstrap";
+
 import { initMapbox } from '../plugins/init_mapbox';
+
+import Siema from 'siema';
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -32,5 +36,15 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+
   initMapbox();
+
+  const siemas = document.querySelectorAll('.siema');
+  for(const siema of siemas) {
+    new Siema({
+      selector: siema,
+      draggable: true,
+      duration: 200
+    })
+  }
 });

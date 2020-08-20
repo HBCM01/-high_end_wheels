@@ -12,7 +12,9 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_profile_path
     else
+      flash[:alert] = @booking.errors.messages
       render :new
+
     end
   end
 
