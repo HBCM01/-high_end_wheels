@@ -24,17 +24,17 @@
     <%= review.rating %>
     <% end %>
   </ul>
-  <div id="map"
+  <div id="map" class="mb-3"
      style="width: 100%; height: 600px;"
      data-markers="<%= @marker.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
   </div>
 
-  <button><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
+  <button class = "btn-flat"><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
   <% if current_user == @car.user %>
-  <button><%= link_to "edit listing", edit_car_path  %></button>
-  <button><%= link_to "delete listing", car_path(@car.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?"}  %></button>
+  <button class = "btn-flat"><%= link_to "Edit listing", edit_car_path  %></button>
+  <button class = "btn-flat"><%= link_to "Delete listing", car_path(@car.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?"}  %></button>
    <% end %>
-  <button><%= link_to "back to cars", cars_path  %></button>
+  <button class = "btn-flat"><%= link_to "Back to cars", cars_path  %></button>
 </div>

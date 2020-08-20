@@ -21,18 +21,23 @@
 }
 
 .btn-flat {
-  color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: white;
-  text-decoration: green;
+  background: lightgray;
+  a {
+    color: black;
+    text-decoration: none !important;
+  }
 }
 
 .btn-flat:hover {
   background: white;
   color: white;
+  text-decoration: none;
 }
-
+a {
+  text-decoration: none;
+}
 
 .cards {
 
