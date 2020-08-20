@@ -1,10 +1,20 @@
+<div class="p-4">
+<div class="form bg-light rounded p-4 shadow">
 <%= simple_form_for @car do |f| %>
-  <%= f.input :make %>
-  <%= f.input :model %>
+<div class="form-row">
+    <div class="col">
+      <%= f.input :make, placeholder: "Ferrari" %>
+    </div>
+    <div class="col">
+      <%= f.input :model, placeholder: "Enzo" %>
+    </div>
+  </div>
+  
   <%= f.input :price %>
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.submit class: "btn-flat w-100" %>
 <% end %>
-
+</div>
+</div>
