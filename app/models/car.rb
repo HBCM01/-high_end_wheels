@@ -9,6 +9,12 @@ class Car < ApplicationRecord
   validates :price, presence: true
   validates :address, presence: true
   validates :user_id, presence: true
-  include PgSearch::Model
-  multisearchable against: [:make, :model, :price, :description]
+  validates :description, presence: true
+   include PgSearch::Model
+  pg_search_scope :car_search,
+    against: [ :make, :model, :description ],
+     using: {
+      tsearch: { prefix: true }
+    }
 end
+

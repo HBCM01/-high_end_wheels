@@ -1,10 +1,10 @@
 class CarsController < ApplicationController
   def index
-    # if params[:search].present?
-    #   @cars = Car.multisearchable(params[:search])
-    # else
+    if params[:query].present?
+      @cars = Car.car_search(params[:query])
+    else
       @cars = Car.all
-    # end
+    end
   end
 
   def new
