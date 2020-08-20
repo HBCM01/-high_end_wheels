@@ -8,8 +8,8 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<button><%= link_to "Create a listing",new_car_path %></button>
-<button><%= link_to "Back", root_path  %></button>
+<button class="btn-flat"><%= link_to "Create a listing",new_car_path %></button>
+<button class="btn-flat"><%= link_to "Back", root_path  %></button>
 
 <div class="cards">
   <%@cars.each do |car| %>
