@@ -1,8 +1,11 @@
 # start and end date
-<%= simple_form_for [ @car, @booking ] do |f| %>
 
-  <input type="date" id="start_date" name="booking[start_date]">
+<div class="container">
+  <%= simple_form_for [ @car, @booking ] do |f| %>
 
-  <input type="date" id="end_date" name="booking[end_date]">
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+    <input type="date" id="start_date" name="booking[start_date]">
+
+    <input type="date" id="end_date" name="booking[end_date]">
+    <%= f.submit class: "btn-flat" %>
+  <% end %>
+</div>
