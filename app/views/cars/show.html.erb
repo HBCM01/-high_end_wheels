@@ -1,12 +1,18 @@
 
 <div class="container">
-  <h1><%= @car.make %></h1>
+  <div class="title">
+  <h1><%= @car.make.capitalize %></h1>
+  </div>
+
   <div class="car-show">
   <% if @car.photos.attached? %>
     <%=cl_image_tag @car.photos.first.key, class:"car_image" %>
     <% else %>
     <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"class = "car_image" alt="">
     <% end %>
+    <div class="car-show-button pb-4">
+      <button class = "btn-flat"><%= link_to "Book this car", new_car_booking_path(@car.id)  %></button>
+    </div>
   <div class="car-show-center">
       <div class="card-trip-infos">
         <div>
