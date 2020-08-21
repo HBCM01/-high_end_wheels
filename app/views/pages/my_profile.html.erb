@@ -1,5 +1,4 @@
 
-</div>
 
 <h2>Pending bookings </h2>
 <div class="cards">
@@ -11,25 +10,42 @@
         <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"class = "car_image" alt="">
       <% end %>
       <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to booking.car.make, car_booking_path(booking.car, booking)%></h2>
-          <ul>
-            <li><%= booking.car.model %></li>
-            <li><%= booking.start_date %></li>
-            <li><%= booking.end_date %></li>
-            <li><%= booking.car.price%> Per day</li>
-          </ul>
-          <p>The ultimate speed test!</p>
+        <div class="container">
+
+        <div class="row">
+          <div class="col-6">
+
+          <div>
+            <h2><%= link_to booking.car.make, car_booking_path(booking.car, booking)%></h2>
+            <ul>
+              <li><%= booking.car.model %></li>
+              <li><%= booking.start_date %></li>
+              <li><%= booking.end_date %></li>
+              <li><%= booking.car.price%> Per day</li>
+            </ul>
+            <p>The ultimate speed test!</p>
+          </div>
+          </div>
+          <div class="col-6">
+            <h2 class="card-trip-pricing">Total £<%= booking.total_price %></h2>
+            <div class="avatar">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered avatar"/>
+            </div>
+          </div>
         </div>
-        <h2 class="card-trip-pricing">Total £<%= booking.total_price %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
         <button class = "btn-flat"><%= link_to "Cancel booking", booking_path(booking.id), method: :delete %></button>
-        <% if booking.review %>
-        <p><%= booking.review.description %></p>
-        <% else %>
+
+        <% if !booking.review %>
         <button class = "btn-flat"><%= link_to "create a review",  new_booking_review_path(booking)%></button>
         <% end  %>
+      <% if booking.review %>
+      <div class="p-3">
+        <h5>Your review: <%= booking.review.rating %> ⭐</h5>
+        <p><%= booking.review.description %></p>
       </div>
+      <% end %>
     </div>
 <% end %>
 </div>
