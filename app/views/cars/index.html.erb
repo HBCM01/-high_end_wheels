@@ -33,7 +33,11 @@
             <p>Available at <%= car.address %></p>
           </div>
           <h2 class="card-trip-pricing"><%= car.price %> GBP </h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <% if car.user.avatar.attached? %>
+            <%=cl_image_tag car.user.avatar.key, class:"card-trip-user avatar-bordered" %>
+          <% else %>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" >
+          <% end %>
         </div>
       </div>
     <% end %>
