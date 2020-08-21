@@ -14,29 +14,30 @@
   <% end %>
 </div> -->
 
-<div class='card'>
-  <div class='card_left'>
+<div class='booking-form'>
+  <div class='booking-form-left'>
     <% if @car.photos.attached? %>
         <%=cl_image_tag @car.photos.first.key, height: 300, width: 550, crop: :fill, class:"car_image" %>
         <% else  %>
         <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="default car">
         <% end %>
   </div>
-  <div class='card_right'>
+
+  <div class='booking-form-right'>
     <h1>Lets confirm your booking for <%= @car.make %></h1>
-    <div class='card_right__details'>
-      <ul>
+    <div class='booking-form-details'>
         <%= simple_form_for [ @car, @booking ] do |f| %>
-
-    <input type="date" id="start_date" name="booking[start_date]">
-
-    <input type="date" id="end_date" name="booking[end_date]">
-    <%= f.submit class: "btn-flat" %>
-  <% end %>
-      </ul>
-      <div class='card_right__button'>
-        <a href='https://www.youtube.com/watch?v=AMv7Xe13EQ4' target='_blank'>WATCH YOUR CAR</a>
-      </div>
+        <div class="booking-form-labels-top">
+          <label>Start date </label>
+            <input type="date" id="start_date" name="booking[start_date]">
+        </div>
+        <br>
+        <div class="booking-form-labels-bottom">
+          <label> End date  </label>
+            <input type="date" id="end_date" name="booking[end_date]" label="End date">
+        </div>
+          <%= f.submit class: "booking-form-details-btn btn-flat" %>
+        <% end %>
     </div>
   </div>
 </div>
