@@ -26,12 +26,23 @@
       <iframe width="560" height="315" src="https://www.youtube.com/embed/AMv7Xe13EQ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
-  <ul>
-    <%@car.reviews.each do |review|%>
-    <%= review.description %>
-    <%= review.rating %>
-    <% end %>
-  </ul>
+
+  <div class="pt-3">
+    <h3> Reviews </h3>
+      <div class="row">
+        <%@car.reviews.each do |review|%>
+        <div class="col-4">
+
+        <div class="review">
+         <h5><%= review.rating %> ⭐</h5>
+          <p><%= review.description %></p>
+          <p><strong><%= review.booking.user.first_name %></strong></p>
+        </div>
+        </div>
+        <% end %>
+
+      </div>
+  </div>
 
 
   <div id="map" class="mb-3"
