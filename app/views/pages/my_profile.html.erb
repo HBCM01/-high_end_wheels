@@ -5,7 +5,11 @@
 <div class="cards">
   <% @pending_bookings.each do |booking| %>
     <div class="card-trip">
+      <% unless booking.car.photos.empty? %>
       <%=cl_image_tag booking.car.photos.first.key, height: 300, width: 550, crop: :fill, class:"car_image" %>
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"class = "car_image" alt="">
+      <% end %>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to booking.car.make, car_booking_path(booking.car, booking)%></h2>
@@ -27,7 +31,7 @@
         <% end  %>
       </div>
     </div>
-  <% end  %>
+<% end %>
 </div>
 
 
